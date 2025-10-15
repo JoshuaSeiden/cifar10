@@ -208,7 +208,7 @@ __marimo__/
 
 
 # Datasets
-data/
+data\cifar-10-batches-py
 *.tar.gz
 
 # Checkpoints
