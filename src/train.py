@@ -4,7 +4,7 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 from tqdm import tqdm
-from model import get_resnet18_model
+from model import get_resnet50_model
 from pathlib import Path
 from multiprocessing import freeze_support
 
@@ -35,7 +35,7 @@ def main():
     testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False, num_workers=8)
 
     # Model
-    model = get_resnet18_model(num_classes=10).to(device)
+    model = get_resnet50_model(num_classes=10).to(device)
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(
@@ -75,8 +75,8 @@ def main():
 
     # Save
     Path("models").mkdir(exist_ok=True)
-    torch.save(model.state_dict(), "models/cifar10_resnet18.pth")
-    print("Model saved to models/cifar10_resnet18.pth")
+    torch.save(model.state_dict(), "models/cifar10_resnet50.pth")
+    print("Model saved to models/cifar10_resnet50.pth")
 
 if __name__ == "__main__":
     freeze_support()

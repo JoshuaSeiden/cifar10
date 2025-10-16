@@ -13,11 +13,10 @@ CLASS_NAMES = [
 ]
 
 def load_model(weights_path, num_classes=10, device='cpu'):
-    # Load fine-tuned ResNet18 model for inference
-    model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+    # Load fine-tuned ResNet50 model for inference
+    model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
     in_features = model.fc.in_features
     model.fc = nn.Linear(in_features, num_classes)
-    #model.fc = nn.Linear(512, 10)
 
     # Load trained weights
     checkpoint = torch.load(weights_path, map_location=device)
@@ -72,4 +71,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# example usage: python inference.py --weights models/cifar10_resnet18.pth --image data/test/cat1.jpg
+# example usage: python inference.py --weights models/cifar10_resnet50.pth --image data/test/cat1.jpg
