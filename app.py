@@ -4,6 +4,7 @@ import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image
 import io
+import os
 
 # CIFAR 10 class names
 CLASS_NAMES = [
@@ -50,7 +51,7 @@ st.set_page_config(page_title="CIFAR-10 Classifier", layout="centered")
 st.title("Fine-tuned ResNet50 trained on CIFAR-10")
 st.markdown("Upload an image to classify it into one of the **CIFAR-10** categories.")
 
-weights_path = "models\cifar10_resnet50.pth"
+weights_path = os.path.join("models", "cifar10_resnet50.pth")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 try:
