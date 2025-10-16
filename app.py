@@ -47,7 +47,7 @@ def predict(model, image_tensor, device):
 
 # Streamlit UI
 st.set_page_config(page_title="CIFAR-10 Classifier", layout="centered")
-st.title("CIFAR-10 Image Classifier")
+st.title("Fine-tuned ResNet50 trained on CIFAR-10")
 st.markdown("Upload an image to classify it into one of the **CIFAR-10** categories.")
 
 weights_path = "models\cifar10_resnet50.pth"
